@@ -8,17 +8,20 @@ let astrology = ['Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer',
 
 let sentiment = ['bad', 'very bad', 'good', 'very good'];
 
-let status = ['chance to win in lottery.', 'fortune incoming.', 'day ahead.', 'future.', 'way of life ahead.'];
+let scenario = ['chance to win in lottery.', 'fortune incoming.', 'day ahead.', 'future.', 'way of life ahead.'];
 
 function randomSelection(arr) {
     return Math.floor(Math.random() * arr.length);
 }
 
-function astrologyMessage(astrology, sentiment, status) {
-    let astrologyPart = randomSelection(astrology);
-    let sentimentPart = randomSelection(sentiment);
-    let statusPart = randomSelection(status);
+function astrologyMessage(astrology, sentiment, scenario) {
+    let astrologyPart = astrology[randomSelection(astrology)];
+    let sentimentPart = sentiment[randomSelection(sentiment)];
+    let scenarioPart = scenario[randomSelection(scenario)];
 
-    let message = `${astrologyPart} will have a ${sentimentPart} ${statusPart}`;
+    let message = `${astrologyPart} will have a ${sentimentPart} ${scenarioPart}`;
     return message;
 }
+
+// Display the message in console
+console.log(astrologyMessage(astrology, sentiment, scenario));
